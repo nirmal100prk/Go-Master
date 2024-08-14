@@ -35,7 +35,7 @@ type CarProxy struct {
 
 func (c *CarProxy) Drive() {
 	if c.Dr.age > 18 {
-		c.Drive()
+		c.Cr.Drive()
 	} else {
 		fmt.Println("Driver is too young to drive")
 	}
@@ -49,6 +49,6 @@ func NewCarProxy(age int) IDrive {
 }
 
 func main() {
-	Ncp := NewCarProxy(12)
+	Ncp := NewCarProxy(19)
 	Ncp.Drive()
 }
