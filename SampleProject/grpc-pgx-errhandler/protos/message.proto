@@ -1,0 +1,19 @@
+syntax ="proto3";
+
+package sampleproto;
+
+option go_package="./pb";
+
+
+
+service SampleService{
+    rpc GetData(Request)returns(Response);
+}
+
+message Request{
+    string id=1;
+}
+
+message Response{
+    string data=1;
+}
