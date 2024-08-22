@@ -3,16 +3,44 @@ package errhandler
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"github.com/jackc/pgx/v5/pgconn"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// mapPgxErrorToGrpc maps pgx errors to gRPC status codes with custom messages.
-func mapPgxErrorToGrpc(err error) error {
+type CustomError struct {
+	Message    string
+	Field      string
+	StatusCode codes.Code // gRPC status code
+}
+
+func (e *CustomError) Error() string {
+	if e.Field != "" {
+		return fmt.Sprintf("%s: %s", e.Field, e.Message)
+	}
+	return e.Message
+}
+
+// NewCustomError creates a new custom error with a specified message and gRPC status code.
+func NewCustomError(message string, field string, statusCode codes.Code) *CustomError {
+	return &CustomError{
+		Message:    message,
+		Field:      field,
+		StatusCode: statusCode,
+	}
+}
+
+// HandleServiceerror handles  errors to gRPC status codes with custom messages.
+func HandleServiceerror(err error) error {
 	if err == nil {
 		return nil
+	}
+
+	// Handle custom errors
+	if customErr, ok := err.(*CustomError); ok {
+		return status.Errorf(customErr.StatusCode, customErr.Error())
 	}
 
 	var pgErr *pgconn.PgError
