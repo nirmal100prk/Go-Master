@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgconn"
-	"gitlab.dt.ae/cerebrum/business-app/fms/mussad-service/internal/utils/constants"
+	
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
