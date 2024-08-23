@@ -2,13 +2,14 @@ package errormiddleware
 
 import (
 	"encoding/json"
+	"go-datastructures/SampleProject/go-gin-errhandler/constants"
 	"net/http"
 
 	"log/slog"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgconn"
-	
+
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
