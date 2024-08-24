@@ -2,41 +2,17 @@ package main
 
 import (
 	"fmt"
-	"go-datastructures/Generics/mapper"
 )
 
 func main() {
-	// S := Stack[int]{}
+	S := Stack[int]{}
 
-	// S.Push(1)
-	// S.Push(2)
-	// fmt.Println(S)
-	// S.Pop()
-	// fmt.Println(S)
-	p := Profile{Name: "nirmal", Age: 24}
-	mapper.Configure(&mapper.MapperConfig{
-		MapUnexportedFields: false,
-	})
+	S.Push(1)
+	S.Push(2)
+	fmt.Println(S)
+	S.Pop()
+	fmt.Println(S)
 
-	err := mapper.CreateMap[*Profile, *NewProfile]()
-	if err != nil {
-		fmt.Println(err)
-	}
-	np, err := mapper.Map[*NewProfile](p)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(np)
-}
-
-type Profile struct {
-	Name string `json:"name"`
-	Age  int32  `json:"age"`
-}
-
-type NewProfile struct {
-	Name string `json:"name"`
-	Age  int32  `json:"age"`
 }
 
 type Stack[T any] struct {
