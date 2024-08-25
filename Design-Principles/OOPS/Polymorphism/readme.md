@@ -1,0 +1,1 @@
+In Go, polymorphism is primarily achieved through interfaces. When a type implements an interface, it can be used interchangeably with any other type that also implements that interface

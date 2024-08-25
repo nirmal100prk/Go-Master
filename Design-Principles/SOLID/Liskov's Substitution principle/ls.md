@@ -1,0 +1,3 @@
+ Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program
+
+ In Go, the Liskov Substitution Principle (LSP) can be applied by ensuring that types implementing an interface behave consistently with the expectations set by that interface. Essentially, any type that satisfies an interface should be able to replace another type that satisfies the same interface without causing unexpected behavior

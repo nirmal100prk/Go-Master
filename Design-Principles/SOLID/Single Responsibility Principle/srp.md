@@ -1,0 +1,1 @@
+A type or function should have one, and only one, reason to change. It should only have one job or responsibility.
