@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-datastructures/SampleProject/swag-go/docs"
+	"go-datastructures/Web-Dev-Essentials/swag-go/docs"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

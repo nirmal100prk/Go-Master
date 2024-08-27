@@ -2,7 +2,7 @@ package errormiddleware
 
 import (
 	"encoding/json"
-	"go-datastructures/SampleProject/go-gin-errhandler/constants"
+	"go-datastructures/Web-Dev-Essentials/go-gin-errhandler/constants"
 	"net/http"
 
 	"log/slog"
