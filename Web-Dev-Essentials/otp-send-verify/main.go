@@ -7,33 +7,52 @@ import (
 	"fmt"
 	"io"
 	"math/big"
-	"strconv"
 )
 
 func main() {
 
-	otp, err := generateOTP(6)
-	fmt.Println(otp, "err", err)
+	for i := 0; i < 20; i++ {
+		otp, err := generateNumericOTP(6)
+		fmt.Println(otp, "err", err)
+	}
+	// b := verifyOTP("9643", "53dc7a5135e96bcb2ce66063c039c8029f08c92cabba746566d685d867f82bb4")
+	// fmt.Println(b)
 }
 
-var table = [...]byte{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'}
+// var table = [...]byte{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'}
+
+// // numeric otp generator
+// func generateNumericOTP(maxDigit int) (int32, error) {
+// 	b := make([]byte, maxDigit)
+// 	n, err := io.ReadAtLeast(rand.Reader, b, maxDigit)
+// 	if n != maxDigit {
+// 		return 0, err
+// 	}
+// 	for i := 0; i < len(b); i++ {
+// 		b[i] = table[int(b[i])%len(table)]
+// 	}
+// 	number, err := strconv.ParseInt(string(b), 10, 32)
+// 	if err != nil {
+// 		return 0, err
+// 	}
+
+// 	return int32(number), nil
+// }
+
+var table = [...]byte{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
 // numeric otp generator
-func generateNumericOTP(maxDigit int) (int32, error) {
+func generateNumericOTP(maxDigit int) (string, error) {
 	b := make([]byte, maxDigit)
 	n, err := io.ReadAtLeast(rand.Reader, b, maxDigit)
 	if n != maxDigit {
-		return 0, err
+		return "", err
 	}
 	for i := 0; i < len(b); i++ {
 		b[i] = table[int(b[i])%len(table)]
 	}
-	number, err := strconv.ParseInt(string(b), 10, 32)
-	if err != nil {
-		return 0, err
-	}
 
-	return int32(number), nil
+	return string(b), nil
 }
 
 const otpChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
