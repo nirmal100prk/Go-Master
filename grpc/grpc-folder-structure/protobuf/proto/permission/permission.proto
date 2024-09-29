@@ -1,0 +1,22 @@
+//message
+syntax ="proto3";
+
+package sampleproto;
+
+option go_package="./pb/permission";
+
+
+
+service SamplePermissionService{
+    // client3
+    rpc GetPermissionDataForClient(PermissionDataRequest)returns(PermissionDataResponse);
+}
+
+message PermissionDataRequest{
+    string id=1;
+}
+
+message PermissionDataResponse{
+    string data=1;
+}
+

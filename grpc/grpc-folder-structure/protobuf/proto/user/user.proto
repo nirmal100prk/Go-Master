@@ -1,0 +1,22 @@
+//message
+syntax ="proto3";
+
+package user;
+
+option go_package="./pb/user";
+
+
+
+service SampleUserService{
+    // client1
+    rpc GetUserDataForClient(UserDataRequest)returns(UserDataResponse);
+}
+
+message UserDataRequest{
+    string id=1;
+}
+
+message UserDataResponse{
+    string data = 1;
+}
+
