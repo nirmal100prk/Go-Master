@@ -1,7 +1,7 @@
 package main
 
 func main() {
-NewConfig(WithAddress(""),WithPort(""))
+	NewConfig(WithAddress(""), WithPort(""))
 }
 
 type Config struct {

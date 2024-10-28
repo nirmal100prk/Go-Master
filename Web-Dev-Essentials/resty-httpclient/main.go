@@ -1,4 +1,4 @@
-package main
+package httpReq
 
 import (
 	"context"
@@ -62,24 +62,24 @@ func SendHttpRequest(ctx context.Context, method, url string, headers map[string
 	}, nil
 }
 
-func main() {
-	// Example usage
-	ctx := context.Background()
-	url := "https://jsonplaceholder.typicode.com/posts"
-	method := "GET"
-	headers := map[string]string{
-		"Content-Type": "application/json",
-	}
+// func main() {
+// 	// Example usage
+// 	ctx := context.Background()
+// 	url := "https://jsonplaceholder.typicode.com/posts"
+// 	method := "GET"
+// 	headers := map[string]string{
+// 		"Content-Type": "application/json",
+// 	}
 
-	// Call the reusable function
-	response, err := SendHttpRequest(ctx, method, url, headers, nil)
-	if err != nil {
-		fmt.Printf("Error making API call: %v\n", err)
-		return
-	}
+// 	// Call the reusable function
+// 	response, err := SendHttpRequest(ctx, method, url, headers, nil)
+// 	if err != nil {
+// 		fmt.Printf("Error making API call: %v\n", err)
+// 		return
+// 	}
 
-	// Print the response
-	fmt.Printf("Status Code: %d\n", response.StatusCode)
-	fmt.Printf("Response Body: %s\n", string(response.Body))
-	fmt.Printf("Response Headers: %v\n", response.Headers)
-}
+// 	// Print the response
+// 	fmt.Printf("Status Code: %d\n", response.StatusCode)
+// 	fmt.Printf("Response Body: %s\n", string(response.Body))
+// 	fmt.Printf("Response Headers: %v\n", response.Headers)
+// }
