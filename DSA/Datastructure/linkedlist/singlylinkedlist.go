@@ -92,3 +92,72 @@ func printRec(n *Nod) {
 	fmt.Println(n.data)
 	printRec(n.next)
 }
+
+// linked list insertion
+
+// Inserting a node in singly linked list at the ending
+//
+func (l *list) InsertAtEnd(value int) {
+	newNod := &Nod{data: value}
+	if l.head == nil {
+		l.head = newNod
+		return
+	}
+
+	curr := l.head
+	for curr.next != nil {
+		curr = curr.next
+	}
+	curr.next = newNod
+
+}
+
+// inserting a node in singly linked list at specified position
+func (l *list) InsertAtKthPosition(val, position int) {
+	newNode := &Nod{data: val}
+
+	if position == 1 {
+		newNode.next = l.head
+		l.head = newNode
+		return
+	}
+	if l.head == nil {
+		return
+	}
+	k := 1
+	curr := l.head
+	var prev *Nod
+	for curr != nil && k < position {
+		prev = curr
+		curr = curr.next
+		k++
+	}
+	if k == position && prev != nil {
+		newNode.next = curr
+		prev.next = curr
+	}
+}
+
+// deletion in linked list, first node, last node , intermediate node
+
+func (l *list) DeleteByValue(val int) {
+	if l.head == nil {
+		return
+	}
+
+	if l.head.data == val {
+		l.head = l.head.next
+		return
+	}
+
+	curr := l.head
+	var prev *Nod
+	for curr != nil && curr.data != val {
+		prev = curr
+		curr = curr.next
+
+	}
+	if curr != nil && prev != nil {
+		prev.next = curr.next
+	}
+}
