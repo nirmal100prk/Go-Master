@@ -2,21 +2,14 @@ package main
 
 import "fmt"
 
-type Nod struct {
-	data int
-	next *Nod
-}
+// type Nod struct {
+// 	data int
+// 	next *Nod
+// }
 
-type list struct {
-	head *Nod
-}
-
-func main() {
-	l := &list{}
-	l.AddRecursively(1)
-	l.AddRecursively(2)
-	l.Print()
-}
+// type list struct {
+// 	head *Nod
+// }
 
 func (l *list) Add(value int) {
 	newNod := &Nod{data: value}
