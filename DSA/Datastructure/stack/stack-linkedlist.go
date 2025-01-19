@@ -11,15 +11,15 @@ type list struct {
 	head *Node
 }
 
-func main() {
-	l := &list{}
-	l.Add(1)
-	l.Add(2)
-	l.Print()
-	l.Remove()
-	l.Print()
+// func main() {
+// 	l := &list{}
+// 	l.Add(1)
+// 	l.Add(2)
+// 	l.Print()
+// 	l.Remove()
+// 	l.Print()
 
-}
+// }
 
 func (l *list) Add(value int) {
 	newNode := &Node{data: value}

@@ -195,6 +195,7 @@ func MergeSortedLinkedList(l1, l2 *Nod) *Nod {
 }
 
 // convert binary tree to a linked list
+// traverse the tree and append each node to the linked list
 
 // check if a linked list is palindrome or not
 func (l *list) IsPalindrome() bool {
@@ -237,3 +238,6 @@ func reverseList(curr *Nod) *Nod {
 	}
 	return prev
 }
+
+
+
