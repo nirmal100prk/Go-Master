@@ -9,6 +9,8 @@ import (
 // step 1 : run without locking, to see race conditions
 // step 2 : only lock write, still a race condition will be present on read
 // step 3 : lock read and write, no race condition will be present
+
+// go run -race race.go
 func main() {
 	Race()
 	// adding mutex in this print statement, even though it is ran after Race func is called.
